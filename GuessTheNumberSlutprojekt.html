@@ -1,0 +1,88 @@
+<html>
+
+ <head>
+</head>
+<body>
+
+<h1>*** GUESS THE SECRET NUMBER ***</h1>
+
+<p>I have selected a random number from 1 to 10 and your goal is to guess it in 3 attempts max. Good luck!</p>
+
+
+<div id="output"></div>
+
+
+<input id="input1">
+<button id="button1">GO!</button>
+<button id="button2">Clear</button>
+        
+<script>
+
+let output = document.getElementById("output");
+let button1 = document.getElementById("button1");
+let button2 = document.getElementById("button2");
+
+let y = Math.floor(Math.random() * 10 + 1);
+let attempts = 0;
+                
+button1.onclick = guessTheNumber;
+button2.onclick = clearOutput;
+
+
+                
+function guessTheNumber() {
+    let x = document.getElementById("input1").value;
+    attempts++;
+    
+                    
+        if (x < y) {
+            print("Your number is too low.");
+        } else if (x > y) {
+            print("Your number is too high.");
+        } else {
+            print("Congratulations! You found the secret number in " + attempts + " attempts!");
+        }
+        
+        if (attempts >= 3) {
+        print("You've used all 3 attempts. The secret number was " + y + ".");
+        disableInput(); 
+        return;
+    }
+}
+            
+    
+        
+function print(text) {
+                    document.getElementById("output").innerHTML += text;
+                }
+        
+function newLine() {
+                    document.getElementById("output").innerHTML += "\n";
+                }
+        
+    
+function clearOutput() {
+    document.getElementById("output").innerHTML = "";
+    input1.value = "";
+}
+
+
+function disableInput() {
+    document.getElementById("input1").disabled = true; 
+    document.getElementById("button1").disabled = true; 
+}
+
+</script>
+</body>
+</html>
+      
+        
+        
+        
+        
+        
+</head>
+<body>
+    
+</body>
+</html>
